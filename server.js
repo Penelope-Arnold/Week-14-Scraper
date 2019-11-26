@@ -23,7 +23,7 @@ mongoose.connect("mongodb://localhost/Week-14", { useNewUrlParser: true });
 app.get("/scrape", function(req, res) {
   axios.get("https://hyperallergic.com/articles/").then(function(response) {
     var $ = cheerio.load(response.data);
-    $(".title").each(function(i, element) {
+    $(".entry-exerpt").each(function(i, element) {
       var title = $(element).children("a").text();
       var link = $(element).children("a").attr("href");
       if (title && link) {
