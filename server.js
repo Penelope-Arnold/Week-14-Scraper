@@ -21,7 +21,7 @@ mongoose.connect("mongodb://localhost/Week-14", { useNewUrlParser: true });
 
 
 app.get("/scrape", function(req, res) {
-  axios.get("https://today.rtl.lu/news/business-and-tech").then(function(response) {
+  axios.get("https://hyperallergic.com/articles/").then(function(response) {
     var $ = cheerio.load(response.data);
     $(".title").each(function(i, element) {
       var title = $(element).children("a").text();
